@@ -29,7 +29,7 @@
     "cross-env": "^7.0.3",
     "prettier": "^2.8.7",
     "rome": "^11.0.0",
-    "sort-jsonc-cli": "^0.1.0",
+    "sort-jsonc-cli": "workplace:./packages/sort-jsonc-cli",
     "typescript": "^5.0.2"
   }
 }
