@@ -1,0 +1,22 @@
+[
+  "name",
+  "version",
+  "description",
+  "author",
+  "homepage",
+  "bugs",
+  "repository",
+  "url",
+  "directory",
+  "license",
+  "private",
+  "keywords",
+  "packageManager",
+  "bin",
+  "files",
+  "type",
+  "engines",
+  "scripts",
+  "dependencies",
+  "devDependencies"
+]
