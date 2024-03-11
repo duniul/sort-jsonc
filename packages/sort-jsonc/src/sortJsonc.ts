@@ -17,7 +17,7 @@ export type SortJsoncOptions = {
    * Number of spaces to indent the JSON.
    * Same as the second parameter of {@link JSON.stringify()}.
    */
-  spaces?: number | undefined | null;
+  spaces?: string | number | undefined | null;
 
   /**
    * Reviver function like the second parameter of {@link JSON.parse()}.
