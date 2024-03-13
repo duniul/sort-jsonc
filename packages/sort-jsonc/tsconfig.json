@@ -16,7 +16,7 @@
     // custom
     "rootDir": "src",
     "outDir": "dist",
-    "types": ["node", "jest"],
+    "types": ["node"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
