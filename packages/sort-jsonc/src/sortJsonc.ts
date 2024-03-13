@@ -48,7 +48,7 @@ function getCompareFn(sortOption: SortJsoncOptions['sort']) {
   if (Array.isArray(sortOption)) {
     return createOrderCompareFn(sortOption);
   }
-  
+
   if (typeof sortOption === 'function') {
     return sortOption;
   }
@@ -81,11 +81,12 @@ export function sortDeepWithSymbols<T extends Record<string | symbol, any>>(init
     if (!Array.isArray(current)) {
       keys.sort(compareFn);
     }
+
     for (const key of keys) {
       const value = current[key];
       sorted[key] = value;
 
-      if (typeof value === 'object') {
+      if (typeof value === 'object' && value !== null) {
         stack.push([sorted, key]);
       }
     }
