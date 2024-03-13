@@ -3,7 +3,6 @@
     "enabled": true,
     "indentStyle": "space",
     "lineWidth": 100,
-    "indentSize": 2,
     "formatWithErrors": false
   },
   "linter": {

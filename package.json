@@ -5,30 +5,29 @@
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@7.29.1",
+  "packageManager": "pnpm@8.15.3",
   "engines": {
     "node": ">=18",
-    "pnpm": ">=7"
+    "pnpm": ">=8"
   },
   "scripts": {
     "changeset": "changeset",
     "changeset:status": "changeset status",
     "changeset:version": "changeset version",
-    "format": "rome format src --write",
     "packages:build": "pnpm -r run build",
     "packages:test": "pnpm -r run test",
     "packages:sort-packagejson": "pnpm -r exec sort-jsonc ./package.json --order-file ../../sort-order.json",
-    "lint": "rome check src",
-    "lint:fix": "rome check src --apply-suggested",
+    "lint": "biome check",
+    "lint:apply": "biome check --apply",
     "preinstall": "npx only-allow pnpm",
     "sort:packagejson": "sort-jsonc ./package.json --order-file ./sort-order.json"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.1",
     "cross-env": "^7.0.3",
     "prettier": "^2.8.7",
-    "rome": "^11.0.0",
     "sort-jsonc-cli": "workplace:./packages/sort-jsonc-cli",
     "typescript": "^5.0.2"
   }
