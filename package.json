@@ -23,12 +23,12 @@
     "sort:packagejson": "sort-jsonc ./package.json --order-file ./sort-order.json"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
-    "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.1",
+    "@biomejs/biome": "1.6.1",
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
     "cross-env": "^7.0.3",
-    "prettier": "^2.8.7",
+    "prettier": "^3.2.5",
     "sort-jsonc-cli": "workplace:./packages/sort-jsonc-cli",
-    "typescript": "^5.0.2"
+    "typescript": "^5.4.2"
   }
 }
