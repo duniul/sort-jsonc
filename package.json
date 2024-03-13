@@ -13,14 +13,15 @@
   "scripts": {
     "changeset": "changeset",
     "changeset:status": "changeset status",
-    "changeset:version": "changeset version",
     "packages:build": "pnpm -r run build",
     "packages:test": "pnpm -r run test",
     "packages:sort-packagejson": "pnpm -r exec sort-jsonc ./package.json --order-file ../../sort-order.json",
     "preinstall": "npx only-allow pnpm",
     "lint": "pnpm -r run lint",
     "lint:apply": "pnpm -r run lint:apply",
-    "sort:packagejson": "sort-jsonc ./package.json --order-file ./sort-order.json"
+    "sort:packagejson": "sort-jsonc ./package.json --order-file ./sort-order.json",
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.1",
