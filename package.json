@@ -17,9 +17,9 @@
     "packages:build": "pnpm -r run build",
     "packages:test": "pnpm -r run test",
     "packages:sort-packagejson": "pnpm -r exec sort-jsonc ./package.json --order-file ../../sort-order.json",
-    "lint": "biome check",
-    "lint:apply": "biome check --apply",
     "preinstall": "npx only-allow pnpm",
+    "lint": "pnpm -r run lint",
+    "lint:apply": "pnpm -r run lint:apply",
     "sort:packagejson": "sort-jsonc ./package.json --order-file ./sort-order.json"
   },
   "devDependencies": {

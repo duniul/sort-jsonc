@@ -36,6 +36,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "prepublish": "npm run build",
+    "lint": "biome check src",
+    "lint:apply": "biome check src --apply",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests"
   },
   "dependencies": {

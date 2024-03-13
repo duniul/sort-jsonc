@@ -47,7 +47,9 @@ export function sortJsonc(jsoncString: string, options?: SortJsoncOptions) {
 function getCompareFn(sortOption: SortJsoncOptions['sort']) {
   if (Array.isArray(sortOption)) {
     return createOrderCompareFn(sortOption);
-  } else if (typeof sortOption === 'function') {
+  }
+  
+  if (typeof sortOption === 'function') {
     return sortOption;
   }
 
@@ -59,6 +61,7 @@ export function sortDeepWithSymbols<T extends Record<string | symbol, any>>(init
   const stack: [any, string][] = [[result, 'sorted']];
 
   while (stack.length) {
+    // biome-ignore lint/style/noNonNullAssertion: we know the stack isn't empty
     const [parent, keyOnParent] = stack.shift()!;
     const current = parent[keyOnParent];
     const sorted: any = Array.isArray(current) ? [] : {};

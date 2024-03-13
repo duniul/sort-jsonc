@@ -31,7 +31,9 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "prepublish": "npm run build",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "biome check src",
+    "lint:apply": "biome check src --apply"
   },
   "dependencies": {
     "comment-json": "^4.2.3"
