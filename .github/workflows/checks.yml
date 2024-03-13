@@ -1,0 +1,73 @@
+name: 🕵️ Checks
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - '.vscode/**'
+      - '*.md'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: 🧱 Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 🏗 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm install
+
+      - name: 🧱 Build project
+        run: pnpm run packages:build
+
+  test:
+    name: 🧪 Test
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 🏗 Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm run packages:build
+
+      - name: 🧪 Run tests
+        run: pnpm run packages:test
