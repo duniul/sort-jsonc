@@ -1,6 +1,6 @@
 {
   "name": "sort-jsonc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sort JSONC/JSON5 without mangling comments!",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
   "homepage": "https://github.com/duniul/sort-jsonc/issues",
