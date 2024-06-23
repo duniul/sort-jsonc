@@ -105,7 +105,7 @@ export function sortDeepWithSymbols<T extends Record<string | symbol, any>>(
     }
 
     if (!Array.isArray(current)) {
-      alreadySorted = isSorted(keys, compareFn);
+      alreadySorted = isSortedArray(keys, compareFn);
       if (checkOnly) {
         return alreadySorted;
       }
@@ -170,7 +170,7 @@ export function isSortedJsonc(jsoncString: string, options?: Pick<SortJsoncOptio
  * @param compareFn - a compare function to use for the comparison.
  * @returns true if the array is sorted, false otherwise.
  */
-function isSorted<T extends string>(arr: T[], compareFn: CompareFn): boolean {
+function isSortedArray<T extends string>(arr: T[], compareFn: CompareFn): boolean {
   return (
     arr
       // This creates a copy of the array that we will iterate over.
