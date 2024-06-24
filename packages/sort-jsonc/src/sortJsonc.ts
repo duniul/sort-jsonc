@@ -68,8 +68,8 @@ function getCompareFn(sortOption: SortJsoncOptions['sort']) {
  *          - `sorted`: The sorted object.
  *          - `alreadySorted`: A boolean indicating whether the object was already sorted.
  *
- * @template T - The type of the object to be sorted or checked. Must extend `Record<string | symbol, any>`.
- * @template C - The conditional type that extends boolean, representing the `checkOnly` parameter.
+ * @typeParam T - The type of the object to be sorted or checked. Must extend `Record<string | symbol, any>`.
+ * @typeParam C - The conditional type that extends boolean, representing the `checkOnly` parameter.
  */
 export function sortDeepWithSymbols<T extends Record<string | symbol, any>, C extends boolean>(
   initial: T,
