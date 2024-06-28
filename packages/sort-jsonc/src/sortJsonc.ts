@@ -106,10 +106,12 @@ export function sortDeepWithSymbols<T extends Record<string | symbol, any>>(
 
     if (!Array.isArray(current)) {
       alreadySorted = isSortedArray(keys, compareFn);
-      if (checkOnly) {
-        return alreadySorted;
-      }
+
       if (!alreadySorted) {
+      	if (checkOnly) {
+      	  return false
+      	}
+
         keys.sort(compareFn);
       }
     }
