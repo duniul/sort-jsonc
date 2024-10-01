@@ -6,7 +6,7 @@
   "homepage": "https://github.com/duniul/sort-jsonc/issues",
   "bugs": "https://github.com/duniul/sort-jsonc/issues",
   "repository": {
-    "url": "https://github.com/duniul/sort-jsonc.git",
+    "url": "git+https://github.com/duniul/sort-jsonc.git",
     "directory": "packages/sort-jsonc",
     "type": "git"
   },
@@ -48,9 +48,14 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "main": "dist/index.cjs",

@@ -6,7 +6,7 @@
   "homepage": "https://github.com/duniul/sort-jsonc/issues",
   "bugs": "https://github.com/duniul/sort-jsonc/issues",
   "repository": {
-    "url": "https://github.com/duniul/sort-jsonc.git",
+    "url": "git+https://github.com/duniul/sort-jsonc.git",
     "directory": "packages/sort-jsonc-cli",
     "type": "git"
   },
