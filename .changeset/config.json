@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": ["changesets-changelog-clean", { "repo": "duniul/sort-jsonc", "inline": true }],
+  "changelog": ["changesets-changelog-clean", { "repo": "duniul/sort-jsonc" }],
   "commit": false,
   "fixed": [],
   "linked": [],
