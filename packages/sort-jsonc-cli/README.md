@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/sort-jsonc-cli.svg)](https://www.npmjs.com/package/sort-jsonc-cli)
 
-✅ CLI for sort JSONC/JSON5 files without mangling comments!
+✅ CLI for sort JSONC files without mangling comments!
 
 <sup><i>Works with regular JSON files too, of course!</i></sup>
 

@@ -1,7 +1,7 @@
 {
   "name": "sort-jsonc-cli",
   "version": "1.0.1",
-  "description": "CLI for sorting JSONC/JSON5 without mangling comments!",
+  "description": "CLI for sorting JSONC without mangling comments!",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
   "homepage": "https://github.com/duniul/sort-jsonc/issues",
   "bugs": "https://github.com/duniul/sort-jsonc/issues",
@@ -16,7 +16,6 @@
     "sort",
     "json",
     "jsonc",
-    "json5",
     "json-comments",
     "comments"
   ],
@@ -37,7 +36,8 @@
     "dev": "tsup --watch",
     "prepublish": "npm run build",
     "lint": "biome check src",
-    "lint:apply": "biome check src --apply"
+    "lint:apply": "biome check src --apply",
+    "changeset": "pnpm -w changeset"
   },
   "dependencies": {
     "clipanion": "^3.2.0",

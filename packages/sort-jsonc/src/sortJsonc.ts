@@ -31,8 +31,8 @@ export type SortJsoncOptions = {
 };
 
 /**
- * Sorts a JSON/JSONC/JSON5 string without mangling comments.
- * @param jsoncString JSON/JSONC/JSON5 string
+ * Sorts a JSON/JSONC string without mangling comments.
+ * @param jsoncString JSON/JSONC string
  * @param options sorting, parsing and formatting options
  * @returns sorted version of the original string
  */

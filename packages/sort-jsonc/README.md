@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/sort-jsonc.svg)](https://www.npmjs.com/package/sort-jsonc)
 
-✅ Sort JSONC/JSON5 without mangling comments!
+✅ Sort JSONC (JSON with comments) without mangling comments!
 
 <sup><i>Works with regular JSON too, of course!</i></sup>
 
@@ -151,7 +151,7 @@ const sortedByKeyLength = sortJsonc(jsonc, { sort: (a, b) => a.length - b.length
   sortJsonc(jsonc: string, options?: SortJsoncOptions): string
 ```
 
-Sorts a JSON/JSONC/JSON5 string without mangling comments (can also remove them if wanted).
+Sorts a JSON/JSONC string without mangling comments (can also remove them if wanted).
 
 Sorts alphabetically by default, but can also sort by preferred key order or by a custom sort function.
 
@@ -159,7 +159,7 @@ Sorts alphabetically by default, but can also sort by preferred key order or by 
 
 | Name      | Type               | Description                                                        |
 | --------- | ------------------ | ------------------------------------------------------------------ |
-| `jsonc`   | `string`           | The JSONC/JSON5 string to sort.                                    |
+| `jsonc`   | `string`           | The JSONC string to sort.                                          |
 | `options` | `SortJsoncOptions` | Options for sorting. See [below](#sortjsoncoptions) for more info. |
 
 ##### Options

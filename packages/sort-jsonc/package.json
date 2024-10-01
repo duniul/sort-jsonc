@@ -1,7 +1,7 @@
 {
   "name": "sort-jsonc",
   "version": "1.0.1",
-  "description": "Sort JSONC/JSON5 without mangling comments!",
+  "description": "Sort JSONC without mangling comments!",
   "author": "Daniel Grefberg <hello@danielgrefberg.com>",
   "homepage": "https://github.com/duniul/sort-jsonc/issues",
   "bugs": "https://github.com/duniul/sort-jsonc/issues",
@@ -15,7 +15,6 @@
     "sort",
     "json",
     "jsonc",
-    "json5",
     "json-comments",
     "comments"
   ],
@@ -33,7 +32,8 @@
     "prepublish": "npm run build",
     "test": "vitest",
     "lint": "biome check src",
-    "lint:apply": "biome check src --apply"
+    "lint:apply": "biome check src --apply",
+    "changeset": "pnpm -w changeset"
   },
   "dependencies": {
     "comment-json": "^4.2.3"

@@ -30,7 +30,7 @@ export class GenerateCommand extends Command {
   });
 
   static override usage = Command.Usage({
-    description: 'Sorts JSONC/JSON5 files.',
+    description: 'Sorts JSONC files.',
     examples: [
       ['Sort a file', '$0 sort-jsonc path/to/file.jsonc'],
       ['Sort a file with by order', '$0 sort-jsonc path/to/file.jsonc -o name,version,description'],
