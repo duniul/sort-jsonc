@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { sortJsonc } from './sortJsonc';
+import { isSortedJsonc, sortJsonc } from './sortJsonc';
 
 describe('sortJsonc', () => {
   it('sorts a .jsonc string and preserves comments', () => {
@@ -223,6 +223,164 @@ describe('sortJsonc', () => {
 }
   `.trim()
       );
+    });
+  });
+});
+
+describe('isSortedJsonc', () => {
+  const unsortedString = `
+{
+  /* comment above h */ 
+  "h": 8,
+  "c": 3, // comment after c
+  "a": 1,
+  "d": {
+    // in d above f,
+    "f": 6,
+    "e": 5,
+  },
+  "i": {
+    "k": 11,
+    /**
+     * block comment above j
+     */
+    "j": 10,
+    "l": {
+      "m": {
+        "p": 16,
+        "o": 15,
+        "n": 14
+      }
+    }
+  },
+  "g": 7,
+  // above b
+  "b": 2,
+}`;
+
+  const sortedString = `
+{
+  "a": 1,
+  // above b
+  "b": 2,
+  "c": 3, // comment after c
+  "d": {
+    "e": 5,
+    // in d above f,
+    "f": 6
+  },
+  "g": 7,
+  /* comment above h */
+  "h": 8,
+  "i": {
+    /**
+     * block comment above j
+     */
+    "j": 10,
+    "k": 11,
+    "l": {
+      "m": {
+        "n": 14,
+        "o": 15,
+        "p": 16
+      }
+    }
+  }
+}`;
+
+  it('sorted input returns true', () => {
+    const result = isSortedJsonc(sortedString);
+
+    expect(result).to.be.true;
+  });
+
+  it('unsorted input returns false', () => {
+    const result = isSortedJsonc(unsortedString);
+
+    expect(result).to.be.false;
+  });
+
+  it('checks unsorted nested arrays', () => {
+    const jsoncString = `
+{
+  "k": 11,
+  "a": [
+    {
+      "c": 3,
+      "b": 2
+    },
+    {
+      "e": 5,
+      "d": 4,
+      "f": [
+        {
+          "h": 8,
+          "g": 7
+        },
+        // array comment!
+        {
+          "j": 10,
+          "i": 9
+        }
+      ]
+    }
+  ]
+}
+    `;
+
+    const result = isSortedJsonc(jsoncString);
+
+    expect(result).to.be.false;
+  });
+
+  describe('order sort', () => {
+    const sortedString = `
+{
+  // Specify the base directory to resolve non-relative module names.
+  "baseUrl": ".",
+  // Generate .d.ts files from TypeScript and JavaScript files in your project.
+  "declaration": true,
+  // Create sourcemaps for d.ts files.
+  "declarationMap": true,
+  // Ensure 'use strict' is always emitted.
+  "alwaysStrict": true,
+  // Disable error reporting for unreachable code.
+  "allowUnreachableCode": false,
+  // Enable error reporting in type-checked JavaScript files.
+  "checkJs": false
+}
+      `;
+
+    const unsortedString = `
+{
+  // Ensure 'use strict' is always emitted.
+  "alwaysStrict": true,
+  // Disable error reporting for unreachable code.
+  "allowUnreachableCode": false,
+  // Specify the base directory to resolve non-relative module names.
+  "baseUrl": ".",
+  // Enable error reporting in type-checked JavaScript files.
+  "checkJs": false,
+  // Generate .d.ts files from TypeScript and JavaScript files in your project.
+  "declaration": true,
+  // Create sourcemaps for d.ts files.
+  "declarationMap": true
+}
+      `;
+    it('sorted input returns true', () => {
+      const result = isSortedJsonc(sortedString, {
+        sort: ['baseUrl', 'declaration', 'declarationMap', 'alwaysStrict', 'allowUnreachableCode', 'checkJs'],
+      });
+
+      expect(result).to.be.true;
+    });
+
+    it('unsorted input returns false', () => {
+      const result = isSortedJsonc(unsortedString, {
+        sort: ['baseUrl', 'declaration', 'declarationMap', 'alwaysStrict', 'allowUnreachableCode', 'checkJs'],
+      });
+
+      expect(result).to.be.false;
     });
   });
 });

@@ -1,1 +1,1 @@
-export { sortJsonc, type CompareFn, type SortJsoncOptions } from './sortJsonc';
+export { sortJsonc, isSortedJsonc, type CompareFn, type SortJsoncOptions } from './sortJsonc';

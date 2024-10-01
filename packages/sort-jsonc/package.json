@@ -30,7 +30,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "prepublish": "npm run build",
-    "test": "vitest",
+    "test": "vitest --run",
     "lint": "biome check src",
     "lint:apply": "biome check src --apply",
     "changeset": "pnpm -w changeset"
